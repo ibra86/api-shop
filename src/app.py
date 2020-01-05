@@ -11,7 +11,10 @@ def create_app():
 
 def configure_app(app):
     # config, session,..
-    ...
+    @app.route('/')
+    @app.route('/index')
+    def index():
+        return "Index page\n"
 
 
 if __name__ == '__main__':

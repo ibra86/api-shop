@@ -1,0 +1,10 @@
+venv/
+.DB_Store
+__pycache__
+Dockerfile
+.gitignore
+.idea
+.git
+.dockerignore
+README*
+docker-compose.yml
