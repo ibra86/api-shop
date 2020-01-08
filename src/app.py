@@ -1,5 +1,8 @@
 from flask import Flask
 
+from db import db, migrate
+from src.config import run_config
+
 
 def create_app():
     #db, blueprints, admin
@@ -11,6 +14,12 @@ def create_app():
 
 def configure_app(app):
     # config, session,..
+    app.config.from_object(run_config())
+    db.init_app(app)
+    db.create_all(app=app)
+    migrate.init_app(app,db)
+
+
     @app.route('/')
     @app.route('/index')
     def index():
@@ -19,4 +28,5 @@ def configure_app(app):
 
 if __name__ == '__main__':
     app = create_app()
+
     app.run(host='0.0.0.0', debug=True)
