@@ -12,8 +12,9 @@ FLASK_DEBUG=1
 flask run --host=0.0.0.0
 ```
 ---
-```docker build -t pg_db .
-docker run --name db -d -p 5431:5432 -v $PWD/data:/var/lib/postgresql/data pg_db
+```
+docker build -t pg_db .
+docker run --name db -d -p 5430:5432 -v $PWD/data:/var/lib/postgresql/data pg_db
 docker exec -it db bash
 
 psql -d postgres -h localhost -U antonio -p 5431
